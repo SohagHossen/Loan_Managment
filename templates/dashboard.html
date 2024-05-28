@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
+{% extends 'base.html' %}
+
+{% block title %} deshboard{% endblock title %}
+
+{% block css %}
+
 .button {
   border: none;
   color: white;
@@ -16,15 +18,15 @@
 
 .button1 {background-color: #04AA6D;} /* Green */
 .button2 {background-color: #008CBA;} /* Blue */
-</style>
-</head>
-<body>
+{% endblock %}
+{% block body %}
+    <h1>this deshboard page </h1>
+
 
 <h1>This is deshboard  views from templet file </h1>
 <p>Change the background color of a button with the background-color property:</p>
 
-<button class="button button1">Customer</button>
-<button class="button button2">Blue</button>
+<a href="{% url 'customer' %}"><button class="button button1" > Customer</button></a>
+<a href="{% url 'customer' %}"><button class="button button2">Blue</button></a>
 
-</body>
-</html>
+{% endblock %}

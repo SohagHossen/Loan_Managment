@@ -1,10 +1,57 @@
+
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'customer/style.css' %}" />
     <title>customer</title>
 </head>
 <body>
-<P> this customer page view from templet >>customer>>customer.html</P>
+<img src="{% static 'logo/error404.png' %}" alt="allinfo"/>
+<p> this customer page view from templet >>customer>>customer.html</P>
+{#{ % for x in cars %}#}
+{#  <li>My name is:  {{X.brand}}</li>#}
+{#  <li>my age: {{ X.model}}</li>#}
+{#  <li>my acadamy roll is: {{X.year }}</li>#}
+{#{ %endfor% }#}
+{#{{ brand }} {{ model }}{{ year }}#}
+{% for i in data %}
+
+    {{ i }}
+
+{% endfor%}
+
+
+<h1>hi {{ cus_info }}</h1>
+ {% if cus_info %}
+
+     <table>
+
+     <tr>
+        <th>id</th>
+        <th>first name</th>
+         <th>last name</th>
+        <th>email</th>
+     </tr>
+
+     {% for i in cus_info %}
+      <tr>
+          <td>{{ i.id }}/td>
+          <td>{{ i.firstname }}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+      </tr>
+    {% endfor %}
+     </table>
+
+{% else %}
+<p>The dataset is empty </p>
+
+{% endif %}
+
+
+<br>
+<a href="{% url 'dashboard' %}">Back</a>
 </body>
 </html>
