@@ -23,7 +23,6 @@
 {% endfor%}
 
 
-<h1>hi {{ cus_info }}</h1>
  {% if cus_info %}
 
      <table>
@@ -37,9 +36,9 @@
 
      {% for i in cus_info %}
       <tr>
-          <td>{{ i.id }}/td>
-          <td>{{ i.firstname }}</td>
-          <td>{{i.lastname}}</td>
+          <td>{{ i.id }}</td>
+          <td>{{ i.first_name }}</td>
+          <td>{{i.last_name}}</td>
           <td>{{i.email}}</td>
       </tr>
     {% endfor %}

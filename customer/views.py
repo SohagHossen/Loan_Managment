@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from customer.models import customer_data
+from customer.models import customer_data, customer_info
 
 
 def customer(request):
