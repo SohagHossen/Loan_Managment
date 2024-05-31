@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from customer.models import customer_data, customer_info
+from .forms import customer_form
 
 
 def customer(request):
@@ -30,6 +31,12 @@ def customer_list(request):
     cus_info=customer_data.objects.all()
 
     return render(request, "customer/customer.html",{"cus_info":cus_info} )
+
+
+def customer_reg(request):
+    customer_freg=customer_form()
+    customer_freg.order_fields(field_order=['email','first_name',' last_name'])
+    return render(request,"customer/forms.html",{"customer_freg":customer_freg})
 
 
 # Create your views here.
