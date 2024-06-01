@@ -5,6 +5,7 @@ from customer.models import customer_data, customer_info
 from .forms import customer_form
 
 
+
 def customer(request):
 
     # na =("sohag ","anika","rs","ds","ds","as")
@@ -34,10 +35,22 @@ def customer_list(request):
 
 
 def customer_reg(request):
-    customer_freg=customer_form()
-    customer_freg.order_fields(field_order=['email','first_name',' last_name'])
+
+    if request.method == "POST":
+        customer_freg = customer_form(request.POST)
+        if customer_freg.is_valid():
+          print(customer_freg.cleaned_data['password'])
+          print(customer_freg.cleaned_data['repassword'])
+          print('This is post method')
+    else:
+     customer_freg=customer_form()
+     print("this get method")
+    # customer_freg.order_fields(field_order=['email','first_name',' last_name'])
     return render(request,"customer/forms.html",{"customer_freg":customer_freg})
 
 
 # Create your views here.
+
+
+
 
