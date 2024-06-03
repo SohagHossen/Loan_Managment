@@ -45,8 +45,9 @@ def customer_reg(request):
     else:
      customer_freg=customer_form()
      print("this get method")
-    # customer_freg.order_fields(field_order=['email','first_name',' last_name'])
+     # customer_freg.order_fields(field_order=['email','first_name',' last_name'])
     return render(request,"customer/forms.html",{"customer_freg":customer_freg})
+
 
 
 # Create your views here.
