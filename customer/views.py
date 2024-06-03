@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from customer.models import customer_data, customer_info
 from .forms import customer_form
+from django.contrib.auth.forms import UserCreationForm
 
 
 
@@ -48,7 +49,15 @@ def customer_reg(request):
      # customer_freg.order_fields(field_order=['email','first_name',' last_name'])
     return render(request,"customer/forms.html",{"customer_freg":customer_freg})
 
+def reg_cus(request):
+    if request.method == "POST":
+        fm=UserCreationForm(request.POST)
+        if fm.is_valid():
+            fm.save()
+    else:
+        fm=UserCreationForm()
 
+    return render(request,'customer/registrations.html',{"fm":fm})
 
 # Create your views here.
 
